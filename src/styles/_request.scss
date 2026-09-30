@@ -5,11 +5,7 @@
   margin-top: 74px;
   padding-top: 56px;
   background: #fff url("../assets/img/form-bg.jpg") center top / 1440px 680px no-repeat;
-  @media (min-width: 1441px) {
-    background-color: #fff;
-    background-image: url("../assets/img/form-bg.jpg"), linear-gradient(90deg, #2895d4 0 50%, #fff 50%);
-    background-size: 1440px 680px, 100% 100%;
-  }
+  @media (min-width: 1441px) { background-size: cover; }
 
   &__subtitle {
     margin-top: 2.5px;
