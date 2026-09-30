@@ -1,0 +1,127 @@
+@use "variables" as *;
+
+.header {
+  position: absolute;
+  inset: 0 0 auto 0;
+  z-index: 20;
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-top: 43px;
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+  }
+}
+
+// Логотип: знак JB + подчёркивание + подпись
+.logo {
+  position: relative;
+  display: block;
+  width: 58px;
+  height: 56px;
+  margin-left: 16px;
+  color: $c-navy;
+  --swoosh: #{$c-yellow};
+
+  &__mark {
+    position: absolute;
+    left: 1.5px;
+    top: -0.5px;
+    width: 49.4px;
+    height: 35px;
+  }
+
+  // жёлтая черта под знаком
+  &::after {
+    content: "";
+    position: absolute;
+    left: 3px;
+    top: 38.5px;
+    width: 31px;
+    height: 2.2px;
+    border-radius: 2px;
+    background: $c-yellow;
+    transform: skewX(-12deg);
+  }
+
+  &__text {
+    position: absolute;
+    left: 0;
+    top: 43px;
+    width: 58px;
+    font-size: 11.6px;
+    line-height: 13px;
+    font-weight: 700;
+    font-style: italic;
+    letter-spacing: -0.2px;
+    white-space: nowrap;
+    color: $c-navy;
+  }
+}
+
+.lang {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+  line-height: 17px;
+  font-weight: 500;
+  color: $c-muted;
+
+  &__sep { color: $c-white; }
+
+  &__btn {
+    color: $c-muted;
+    text-transform: uppercase;
+    transition: color 0.2s;
+    &.is-active, &:hover { color: $c-white; }
+  }
+}
+
+.btn--menu {
+  width: 197px;
+  height: 50px;
+  gap: 16px;
+  font-size: 14px;
+  line-height: 17px;
+  padding-left: 1px;
+
+  .btn__icon--burger { width: 16px; height: 12px; color: $c-white; }
+}
+
+// Выпадающее меню
+.menu {
+  position: absolute;
+  top: 103px;
+  right: max(#{$gutter}, calc((100% - #{$container}) / 2));
+  width: 260px;
+  padding: 16px 0;
+  border-radius: $r-card;
+  background: $c-white;
+  box-shadow: $shadow-card;
+
+  &[hidden] { display: none; }
+
+  a {
+    display: block;
+    padding: 10px 24px;
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: $c-navy;
+    transition: background 0.2s;
+    &:hover { background: #f1f5f9; }
+  }
+}
+
+@include mobile {
+  .header__inner { padding-top: 20px; }
+  .logo { margin-left: 0; }
+  .btn--menu { width: 120px; height: 44px; }
+}

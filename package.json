@@ -1,0 +1,19 @@
+{
+  "name": "jet-bridge",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "sass": "^1.80.0",
+    "typescript": "^5.6.0",
+    "vite": "^5.4.0"
+  },
+  "dependencies": {
+    "@fontsource/jost": "^5.1.0"
+  }
+}

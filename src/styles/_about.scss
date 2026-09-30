@@ -1,0 +1,52 @@
+@use "variables" as *;
+
+.about {
+  padding-top: 65px;
+
+  &__inner {
+    display: grid;
+    grid-template-columns: 650px 630px;
+    align-items: stretch;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  &__title { margin-top: -3px; }
+
+  &__text {
+    max-width: 610px;
+    margin-top: 27px;
+    p + p { margin-top: 11px; }
+  }
+
+  &__btn {
+    width: 305px;
+    margin-top: auto;
+  }
+
+  &__img {
+    width: 630px;
+    height: 430px;
+    object-fit: cover;
+    border-radius: $r-photo;
+  }
+}
+
+@include laptop {
+  .about__inner { grid-template-columns: 1fr 1fr; gap: 20px; }
+  .about__img { width: 100%; height: 100%; min-height: 360px; }
+}
+@include tablet {
+  .about__inner { grid-template-columns: 1fr; }
+  .about__btn { margin-top: 32px; }
+  .about__img { height: 360px; }
+}
+@include mobile {
+  .about { padding-top: 48px; }
+  .about__btn { width: 100%; }
+  .about__img { min-height: 0; height: 240px; }
+}

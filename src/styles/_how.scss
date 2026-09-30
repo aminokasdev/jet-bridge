@@ -1,0 +1,120 @@
+@use "variables" as *;
+
+.how {
+  position: relative;
+  z-index: 1; // поверх облаков из секции тарифов
+  padding-top: 93px;
+
+  &__grid {
+    position: relative;
+    height: 580px;
+  }
+
+  &__intro { position: absolute; z-index: 2; left: 0; top: 0; width: 650px; }
+  &__title { margin-top: -4.5px; }
+
+  &__text {
+    max-width: 640px;
+    margin-top: 22.5px;
+  }
+
+  &__plane {
+    position: absolute;
+    left: 480px;
+    top: 62px;
+    width: 700px;
+    height: 238px;
+    pointer-events: none;
+  }
+
+  &__van {
+    position: absolute;
+    z-index: 0;
+    left: 620px;
+    top: 282px;
+    width: 360px;
+    height: 300px;
+    pointer-events: none;
+  }
+}
+
+.btn--contact {
+  position: absolute;
+  left: 0;
+  top: 217px;
+  width: 325px;
+  justify-content: flex-start;
+  padding: 0 10px 0 87px;
+
+  .btn__square {
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    margin-left: auto;
+    border-radius: 10px;
+    background: $c-white;
+    color: $c-text;
+    svg { width: 16px; height: 16px; }
+  }
+}
+
+.step {
+  position: absolute;
+  z-index: 1;
+  width: 305px;
+  height: 280px;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 26px 26px 26px;
+  border-radius: $r-card;
+  background: $grad-step;
+  color: $c-white;
+
+  &__title {
+    padding-right: 60px;
+    font-size: 20px;
+    line-height: 22px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  &__icon {
+    position: absolute;
+    top: 25px;
+    right: 26px;
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+  }
+
+  &__text { margin-top: auto; }
+
+  &--online   { left: 650px; top: 0; }
+  &--dubai    { left: 0;     top: 300px; }
+  &--avia     { left: 325px; top: 300px; }
+  &--delivery { left: 975px; top: 300px; }
+}
+
+@include laptop {
+  .how__grid {
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .how__intro, .step, .btn--contact { position: static; width: auto; }
+  .how__intro { grid-column: 1 / -1; }
+  .how__plane, .how__van { display: none; }
+  .btn--contact { margin-top: 28px; width: 325px; }
+  .step { height: 240px; }
+  .step--online { order: 1; }
+  .step--dubai { order: 2; }
+  .step--avia { order: 3; }
+  .step--delivery { order: 4; }
+}
+@include mobile {
+  .how { padding-top: 64px; }
+  .how__grid { grid-template-columns: 1fr; }
+  .btn--contact { width: 100%; padding-left: 24px; }
+}

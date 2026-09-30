@@ -1,0 +1,37 @@
+// ==== Дизайн-токены (сняты с макета 1440px) ====
+$c-navy: #03467c;
+$c-navy-dark: #003a70;
+$c-blue: #067fe1;
+$c-yellow: #f9bc14;
+$c-orange-start: #f97114;
+$c-orange-end: #f9b914;
+$c-text: #000;
+$c-white: #fff;
+$c-muted: #abb6c3;
+$c-placeholder: #ababab;
+$c-divider: #eee;
+$c-arrow-disabled: #a7a7a7;
+
+$grad-orange: linear-gradient(90deg, $c-orange-start 0%, $c-orange-end 100%);
+$grad-step: linear-gradient(180deg, $c-navy 0%, $c-blue 100%);
+
+$font: "Futura PT", "Jost", "Century Gothic", Arial, sans-serif;
+
+$container: 1280px;
+$gutter: 20px;
+
+$r-photo: 25px;
+$r-card: 20px;
+$r-btn: 20px;
+
+$shadow-card: 0 4px 24px rgba(0, 0, 0, 0.12);
+
+// брейкпоинты
+$bp-desktop: 1439px;
+$bp-laptop: 1319px;
+$bp-tablet: 1023px;
+$bp-mobile: 767px;
+
+@mixin laptop { @media (max-width: $bp-laptop) { @content; } }
+@mixin tablet { @media (max-width: $bp-tablet) { @content; } }
+@mixin mobile { @media (max-width: $bp-mobile) { @content; } }

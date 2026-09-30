@@ -1,0 +1,97 @@
+@use "variables" as *;
+
+.cargo {
+  padding-top: 75px;
+  overflow-x: clip;
+
+  &__title { margin-bottom: 22.5px; }
+
+  &__stage {
+    position: relative;
+    height: 710px;
+  }
+
+  &__photo {
+    width: 1280px;
+    height: 505px;
+    object-fit: cover;
+    border-radius: $r-photo;
+  }
+
+  // карточки слегка развёрнуты, как в макете, и последняя уходит за край
+  &__cards { position: absolute; inset: 0; }
+}
+
+.cat {
+  position: absolute;
+  width: 421px;
+  height: 292px;
+  padding: 35px 20px 0;
+  border-radius: $r-card;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  color: $c-white;
+
+  &__tag {
+    display: inline-flex;
+    align-items: center;
+    height: 32px;
+    padding: 0 18px;
+    border: 1px solid currentColor;
+    border-radius: 8px;
+    font-size: 17px;
+    line-height: 20px;
+    font-weight: 300;
+    letter-spacing: 0.01em;
+  }
+
+  &__title {
+    position: absolute;
+    left: 20px;
+    top: 219.5px;
+    font-size: 20px;
+    line-height: 23px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  &--1 {
+    left: 1px; top: 408px;
+    transform: rotate(1.44deg);
+    background: $grad-orange;
+    overflow: hidden;
+    // полутоновая «волна» из макета
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle, rgba(170, 80, 10, 0.35) 1.2px, transparent 1.6px) 0 0 / 6px 6px;
+      mask-image: radial-gradient(ellipse 60% 35% at 40% 55%, #000 30%, transparent 70%),
+        radial-gradient(ellipse 40% 25% at 85% 35%, #000 20%, transparent 70%);
+      pointer-events: none;
+    }
+  }
+  &--2 { left: 324px; top: 409.5px; transform: rotate(-0.32deg); background: $c-white; color: $c-navy; }
+  &--3 { left: 633.5px; top: 413px; transform: rotate(1.44deg); background: $c-navy; }
+  &--4 { left: 954px; top: 413.5px; transform: rotate(-0.32deg); background: $grad-orange; }
+}
+
+@include laptop {
+  .cargo { overflow: hidden; }
+  .cargo__stage { height: auto; }
+  .cargo__photo { width: 100%; height: 360px; }
+  .cargo__cards {
+    position: static;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-top: -80px;
+    position: relative;
+  }
+  .cat { position: relative; left: auto; top: auto; width: auto; height: 220px; }
+  .cat__title { top: auto; bottom: 24px; }
+}
+@include mobile {
+  .cargo__cards { grid-template-columns: 1fr; margin-top: -40px; }
+  .cargo__photo { height: 220px; }
+  .cat { transform: none; height: 180px; }
+}

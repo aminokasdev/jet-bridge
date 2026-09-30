@@ -1,0 +1,90 @@
+@use "variables" as *;
+
+.reviews {
+  padding-top: 77.5px;
+  overflow: hidden;
+
+  &__title { margin-bottom: 14px; }
+}
+
+.slider {
+  position: relative;
+
+  // вьюпорт: слева обрезается по контейнеру, справа — по краю экрана
+  &__viewport {
+    padding: 30px 0 40px;
+    margin-bottom: -40px;
+    margin-right: calc((100% - 100vw) / 2);
+    clip-path: inset(0 0 0 -18px);
+    overflow: hidden;
+  }
+
+  &__track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.45s ease;
+    will-change: transform;
+  }
+
+  &__arrow {
+    position: absolute;
+    z-index: 2;
+    top: 98px;
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: $c-navy;
+    color: $c-white;
+    transition: background 0.2s, opacity 0.2s;
+
+    svg { width: 16px; height: 16px; }
+    &:disabled { background: $c-arrow-disabled; cursor: default; opacity: 0.9; }
+    &:not(:disabled):hover { background: $c-navy-dark; }
+
+    &--prev { left: -31px; svg { transform: scaleX(-1); } }
+    &--next { right: -20px; }
+  }
+}
+
+.review {
+  flex: 0 0 305px;
+  height: 280px;
+  padding: 19px 20px 0;
+  border-radius: $r-card;
+  background: $c-white;
+  box-shadow: $shadow-card;
+
+  &__head {
+    display: flex;
+    align-items: flex-start;
+    gap: 21px;
+    height: 81px;
+    border-bottom: 1px solid $c-divider;
+  }
+
+  &__avatar {
+    flex: none;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  &__name {
+    margin-top: 7px;
+    font-size: 20px;
+    line-height: 22px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  &__text { margin-top: 22px; letter-spacing: 0.05em; }
+}
+
+@include mobile {
+  .slider__arrow--prev { left: -8px; }
+  .slider__arrow--next { right: -8px; }
+  .review { flex-basis: 280px; height: auto; min-height: 280px; padding-bottom: 20px; }
+}
