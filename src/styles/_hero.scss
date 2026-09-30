@@ -12,23 +12,21 @@
   &__inner { padding-top: 171px; }
 
   &__title {
-    font-weight: 600;
-    letter-spacing: -0.05em;
+    font-size: 70px;
+    line-height: 1.2;
+    font-weight: 700;
+    letter-spacing: -0.02em;
     text-transform: uppercase;
   }
 
   &__brand {
     display: block;
-    font-size: 72px;
-    line-height: 75px;
     text-transform: none;
     color: $c-yellow;
   }
 
   &__line {
     display: block;
-    font-size: 50px;
-    line-height: 58px;
   }
 
   &__text {
@@ -56,15 +54,13 @@
 @include tablet {
   .hero { height: auto; padding-bottom: 80px; background-size: cover; }
   .hero__inner { padding-top: 150px; }
-  .hero__brand { font-size: 56px; line-height: 60px; }
-  .hero__line { font-size: 38px; line-height: 44px; }
+  .hero__title { font-size: 48px; }
   .hero__buttons { margin-top: 48px; }
 }
 
 @include mobile {
   .hero__inner { padding-top: 110px; }
-  .hero__brand { font-size: 44px; line-height: 48px; }
-  .hero__line { font-size: 26px; line-height: 32px; }
+  .hero__title { font-size: 32px; }
   .hero__text { font-size: 16px; line-height: 20px; }
   .hero__buttons { flex-direction: column; gap: 12px; }
   .btn--hero { width: 100%; }

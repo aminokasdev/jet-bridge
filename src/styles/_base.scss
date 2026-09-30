@@ -15,9 +15,9 @@ body {
   min-width: 320px;
   font-family: $font;
   font-size: 16px;
-  line-height: 19px;
+  line-height: 1.2;
   font-weight: 400;
-  letter-spacing: 0.03em;
+  letter-spacing: -0.02em;
   color: $c-text;
   background: $c-white;
   -webkit-font-smoothing: antialiased;
@@ -51,14 +51,14 @@ button { cursor: pointer; background: none; border: 0; padding: 0; }
 
 // Заголовок секции
 .h2 {
-  font-size: 64px;
-  line-height: 60px;
-  font-weight: 600;
-  letter-spacing: -0.06em;
+  font-size: 60px;
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: -0.011em;
   text-transform: uppercase;
   color: $c-navy;
-  @include tablet { font-size: 44px; line-height: 44px; }
-  @include mobile { font-size: 32px; line-height: 34px; }
+  @include tablet { font-size: 42px; }
+  @include mobile { font-size: 30px; }
 }
 
 // Кнопки
